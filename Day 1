@@ -1,0 +1,24 @@
+#Day 1 Submission
+import heapq
+tot_distance = 0
+a1,a2 = [],[]
+with open('input.txt','r') as file:
+  for line in file:
+    a,b = map(int,line.split())
+    a1.append(a)
+    a2.append(b)
+ind = 0
+l = len(a1)
+n_sm_a1 = heapq.nsmallest(l,a1)
+n_sm_a2 = heapq.nsmallest(l,a2)
+for i in range(len(a1)):
+  tot_distance += abs(n_sm_a1[i] - n_sm_a2[i])
+print(tot_distance) #1
+similarity_score = 0
+for i in range(l):
+  t  = 0
+  for j in range(l):
+    if a1[i] == a2[j]:
+      t+=1
+  similarity_score+=a1[i]*t
+print(similarity_score) #2

@@ -1,0 +1,39 @@
+counter = 0
+with open('input.txt', 'r') as t:
+    g = t.read().strip()
+st = g.split('\n')
+r = len(st)
+c = len(st[0])
+
+for i in range(r):
+    for j in range(c):
+        if j + 3 < c and st[i][j] == 'X' and st[i][j + 1] == 'M' and st[i][j + 2] == 'A' and st[i][j + 3] == 'S':
+            counter += 1
+        if j + 3 < c and st[i][j] == 'S' and st[i][j + 1] == 'A' and st[i][j + 2] == 'M' and st[i][j + 3] == 'X':
+            counter += 1
+        if i + 3 < r and j + 3 < c and st[i][j] == 'X' and st[i + 1][j + 1] == 'M' and st[i + 2][j + 2] == 'A' and st[i + 3][j + 3] == 'S':
+            counter += 1
+        if i + 3 < r and j + 3 < c and st[i][j] == 'S' and st[i + 1][j + 1] == 'A' and st[i + 2][j + 2] == 'M' and st[i + 3][j + 3] == 'X':
+            counter += 1
+        if i + 3 < r and st[i][j] == 'X' and st[i + 1][j] == 'M' and st[i + 2][j] == 'A' and st[i + 3][j] == 'S':
+            counter += 1
+        if i + 3 < r and st[i][j] == 'S' and st[i + 1][j] == 'A' and st[i + 2][j] == 'M' and st[i + 3][j] == 'X':
+            counter += 1
+        if i - 3 >= 0 and j + 3 < c and st[i][j] == 'X' and st[i - 1][j + 1] == 'M' and st[i - 2][j + 2] == 'A' and st[i - 3][j + 3] == 'S':
+            counter += 1
+        if i - 3 >= 0 and j + 3 < c and st[i][j] == 'S' and st[i - 1][j + 1] == 'A' and st[i - 2][j + 2] == 'M' and st[i - 3][j + 3] == 'X':
+            counter += 1
+
+counter
+a = 0
+for i in range(r):
+  for j in range(c):
+    if j+2<c and i+2 < r and st[i][j] == 'M' and st[i][j+2] == 'S' and st[i+1][j+1] == 'A' and st[i+2][j] == 'M' and st[i+2][j+2] == 'S':
+      a+=1
+    if j+2<c and i+2 < r and st[i][j] == 'S' and st[i][j+2] == 'M' and st[i+1][j+1] == 'A' and st[i+2][j] == 'S' and st[i+2][j+2] == 'M':
+      a+=1
+    if j+2<c and i+2 < r and st[i][j] == 'S' and st[i][j+2] == 'S' and st[i+1][j+1] == 'A' and st[i+2][j] == 'M' and st[i+2][j+2] == 'M':
+      a+=1
+    if j+2<c and i+2 < r and  st[i][j] == 'M' and st[i][j+2] == 'M' and st[i+1][j+1] == 'A' and st[i+2][j] == 'S' and st[i+2][j+2] == 'S':
+      a+=1
+a
